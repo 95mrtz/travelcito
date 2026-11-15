@@ -1,10 +1,58 @@
 @import "tailwindcss";
 
-@keyframes shake {0%, 100% { transform: rotate(0deg); transform-origin: 50% 50%; } 10% { transform: rotate(8deg); } 20%, 40%, 60% { transform: rotate(-10deg); } 30%, 50%, 70% { transform: rotate(10deg); } 80% { transform: rotate(-8deg); } 90% { transform: rotate(8deg);} }
+@custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+}
 
-.shake { 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-    animation: shake 5s ease-in-out 0s infinite normal none; 
+body {
+  font-family: var(--font-sans);
+}
 
+html {
+  height: 100%;
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); transform-origin: 50% 50%; }
+  10% { transform: rotate(8deg); }
+  20%, 40%, 60% { transform: rotate(-10deg); }
+  30%, 50%, 70% { transform: rotate(10deg); }
+  80% { transform: rotate(-8deg); }
+  90% { transform: rotate(8deg); }
+}
+
+.shake {
+  animation: shake 5s ease-in-out 0s infinite normal none;
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-up,
+  .animate-fade-in {
+    animation: none;
+  }
 }

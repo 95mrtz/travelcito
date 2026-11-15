@@ -1,12 +1,11 @@
 import { FC } from 'react';
-import { AiOutlineGithub, AiOutlineX } from 'react-icons/ai';
 
 const Footer: FC = () => {
   return (
-    <footer className="w-full max-w-4xl py-4 flex justify-center items-center gap-5">
-      <AiOutlineGithub size={24} />
-      <p className="text-md font-bold">Sobre este proyecto</p>
-      <AiOutlineX size={24} />
+    <footer className="w-full py-6 flex justify-center items-center">
+      <p className="text-xs text-slate-400 dark:text-slate-600 tracking-wide">
+        Hecho con ❤️ para viajeros
+      </p>
     </footer>
   );
 };
